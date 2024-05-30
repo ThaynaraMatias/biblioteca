@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Cearense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Livros</h1>
+    <ul>
+        {% for livro in livros %}
+            <li>{{ livro.titulo }} - {{ livro.autor }} ({{ livro.ano_publicacao }}) | <a href="{{ url_for('editar_livro', id=livro.id) }}">Editar</a> | <a href="{{ url_for('excluir_livro', id=livro.id) }}">Excluir</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('adicionar_livro') }}">Adicionar Livro</a>
+</body>
+</html>

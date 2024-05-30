@@ -1,0 +1,4 @@
+from projeto_biblioteca import app, db
+
+with app.app_context():
+    db.create_all()
